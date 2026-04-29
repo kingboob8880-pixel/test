@@ -1,0 +1,42 @@
+{
+  "knots": [
+    {
+      "id": "fear_knot",
+      "name_ru": "Узел страха",
+      "description": "Необоснованные страхи и фобии",
+      "ruqya_focus": "Нас, Фатиха"
+    },
+    {
+      "id": "sadness_knot",
+      "name_ru": "Узел печали",
+      "description": "Глубокая грусть и уныние",
+      "ruqya_focus": "Ихлас, Фатиха"
+    },
+    {
+      "id": "anger_knot",
+      "name_ru": "Узел гнева",
+      "description": "Вспышки гнева и раздражения",
+      "ruqya_focus": "Фаляк, Нас"
+    },
+    {
+      "id": "doubt_knot",
+      "name_ru": "Узел сомнений",
+      "description": "Сомнения в вере и поклонении",
+      "ruqya_focus": "Ихлас, Фатиха"
+    },
+    {
+      "id": "guilt_knot",
+      "name_ru": "Узел вины",
+      "description": "Чрезмерное чувство вины",
+      "ruqya_focus": "Фатиха, Ихлас"
+    },
+    {
+      "id": "shame_knot",
+      "name_ru": "Узел стыда",
+      "description": "Токсичный стыд",
+      "ruqya_focus": "Фаляк, Нас"
+    }
+  ],
+  "course_duration_days": 10,
+  "daily_sessions": 2
+}

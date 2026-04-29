@@ -1,0 +1,68 @@
+{
+  "ruqya_fatiha": {
+    "id": "ruqya_fatiha",
+    "name_ru": "Аль-Фатиха",
+    "templates": ["ruqya_fatiha"],
+    "repeats_multiplier": 1
+  },
+  "ruqya_ikhlas": {
+    "id": "ruqya_ikhlas",
+    "name_ru": "Аль-Ихлас",
+    "templates": ["ruqya_ikhlas"],
+    "repeats_multiplier": 1
+  },
+  "ruqya_falaq": {
+    "id": "ruqya_falaq",
+    "name_ru": "Аль-Фаляк",
+    "templates": ["ruqya_falaq"],
+    "repeats_multiplier": 1
+  },
+  "ruqya_nas": {
+    "id": "ruqya_nas",
+    "name_ru": "Ан-Нас",
+    "templates": ["ruqya_nas"],
+    "repeats_multiplier": 1
+  },
+  "protection_body": {
+    "id": "protection_body",
+    "name_ru": "Защита тела",
+    "templates": ["protection_body"],
+    "repeats_multiplier": 1
+  },
+  "protection_home": {
+    "id": "protection_home",
+    "name_ru": "Защита дома",
+    "templates": ["protection_home"],
+    "repeats_multiplier": 1
+  },
+  "closing_doors": {
+    "id": "closing_doors",
+    "name_ru": "Закрытие дверей",
+    "templates": ["closing_doors"],
+    "repeats_multiplier": 1
+  },
+  "water_cleansing": {
+    "id": "water_cleansing",
+    "name_ru": "Вода для чистки",
+    "templates": ["water_cleansing"],
+    "repeats_multiplier": 1
+  },
+  "oil_protection": {
+    "id": "oil_protection",
+    "name_ru": "Масло для защиты",
+    "templates": ["oil_protection"],
+    "repeats_multiplier": 1
+  },
+  "final_return": {
+    "id": "final_return",
+    "name_ru": "Возвращение зла",
+    "templates": ["final_return"],
+    "repeats_multiplier": 1
+  },
+  "dua_healing": {
+    "id": "dua_healing",
+    "name_ru": "Мольба об исцелении",
+    "templates": ["dua_healing"],
+    "repeats_multiplier": 1
+  }
+}

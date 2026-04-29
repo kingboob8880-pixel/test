@@ -1,0 +1,42 @@
+{
+  "unbind": {
+    "id": "unbind",
+    "name_ru": "Развязать узел",
+    "name_ar": "فك العقدة"
+  },
+  "expel": {
+    "id": "expel",
+    "name_ru": "Изгнать",
+    "name_ar": "إخراج"
+  },
+  "protect": {
+    "id": "protect",
+    "name_ru": "Защитить",
+    "name_ar": "حماية"
+  },
+  "heal": {
+    "id": "heal",
+    "name_ru": "Исцелить",
+    "name_ar": "شفاء"
+  },
+  "cleanse": {
+    "id": "cleanse",
+    "name_ru": "Очистить",
+    "name_ar": "تطهير"
+  },
+  "close": {
+    "id": "close",
+    "name_ru": "Закрыть",
+    "name_ar": "إغلاق"
+  },
+  "return": {
+    "id": "return",
+    "name_ru": "Вернуть зло",
+    "name_ar": "رد الشر"
+  },
+  "strengthen": {
+    "id": "strengthen",
+    "name_ru": "Укрепить",
+    "name_ar": "تقوية"
+  }
+}

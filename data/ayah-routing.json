@@ -1,0 +1,7 @@
+{
+  "sihr": ["fatiha", "baqara_285", "falaq", "nas"],
+  "jinn": ["fatiha", "kursi", "falaq", "nas"],
+  "ayn": ["fatiha", "ikhlas", "falaq", "nas"],
+  "waswasa": ["fatiha", "nas", "ikhlas"],
+  "emotional": ["fatiha", "ikhlas", "falaq"]
+}

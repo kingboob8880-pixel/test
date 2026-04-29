@@ -1,0 +1,79 @@
+{
+  "qalb": {
+    "id": "qalb",
+    "name_ru": "Сердце",
+    "name_ar": "قلب",
+    "genitive_ru": "сердца",
+    "accusative_ar": "قَلْبَ"
+  },
+  "sadr": {
+    "id": "sadr",
+    "name_ru": "Грудь",
+    "name_ar": "صدر",
+    "genitive_ru": "груди",
+    "accusative_ar": "صَدْرَ"
+  },
+  "batn": {
+    "id": "batn",
+    "name_ru": "Живот",
+    "name_ar": "بطن",
+    "genitive_ru": "живота",
+    "accusative_ar": "بَطْنَ"
+  },
+  "ras": {
+    "id": "ras",
+    "name_ru": "Голова",
+    "name_ar": "رأس",
+    "genitive_ru": "головы",
+    "accusative_ar": "رَأْسَ"
+  },
+  "jasad": {
+    "id": "jasad",
+    "name_ru": "Тело",
+    "name_ar": "جسد",
+    "genitive_ru": "тела",
+    "accusative_ar": "جَسَدَ"
+  },
+  "aql": {
+    "id": "aql",
+    "name_ru": "Разум",
+    "name_ar": "عقل",
+    "genitive_ru": "разума",
+    "accusative_ar": "عَقْلَ"
+  },
+  "qalb_aql": {
+    "id": "qalb_aql",
+    "name_ru": "Сердце и разум",
+    "name_ar": "قلب وعقل",
+    "genitive_ru": "сердца и разума",
+    "accusative_ar": "قَلْبَ وَعَقْلَ"
+  },
+  "zahr": {
+    "id": "zahr",
+    "name_ru": "Спина",
+    "name_ar": "ظهر",
+    "genitive_ru": "спины",
+    "accusative_ar": "ظَهْرَ"
+  },
+  "unuq": {
+    "id": "unuq",
+    "name_ru": "Шея",
+    "name_ar": "عنق",
+    "genitive_ru": "шеи",
+    "accusative_ar": "عُنُقَ"
+  },
+  "yadayn": {
+    "id": "yadayn",
+    "name_ru": "Руки",
+    "name_ar": "يدان",
+    "genitive_ru": "рук",
+    "accusative_ar": "يَدَيْ"
+  },
+  "rijlayn": {
+    "id": "rijlayn",
+    "name_ru": "Ноги",
+    "name_ar": "رجلان",
+    "genitive_ru": "ног",
+    "accusative_ar": "رِجْلَيْ"
+  }
+}

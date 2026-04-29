@@ -1,0 +1,110 @@
+{
+  "ruqya_general": {
+    "id": "ruqya_general",
+    "type": "ruqya",
+    "name_ru": "Общая рукья",
+    "template_ar": "بسم الله الرحمن الرحيم، {attribute} {organ_accusative} من {illness}",
+    "template_translit": "Бисмилляхи р-Рахмани р-Рахим, {attribute} {organ} мин {illness}",
+    "template_ru": "Во имя Аллаха Милостивого Милосердного, {attribute} {organ} от {illness}",
+    "repeats_base": 3
+  },
+  "ruqya_fatiha": {
+    "id": "ruqya_fatiha",
+    "type": "ruqya",
+    "name_ru": "Аль-Фатиха",
+    "template_ar": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+    "template_translit": "Аль-хамду лилляхи раббиль-алямин",
+    "template_ru": "Хвала Аллаху, Господу миров",
+    "repeats_base": 7
+  },
+  "ruqya_ikhlas": {
+    "id": "ruqya_ikhlas",
+    "type": "ruqya",
+    "name_ru": "Аль-Ихлас",
+    "template_ar": "قُلْ هُوَ اللَّهُ أَحَدٌ",
+    "template_translit": "Куль хува Ллаху ахад",
+    "template_ru": "Скажи: Он — Аллах Единый",
+    "repeats_base": 3
+  },
+  "ruqya_falaq": {
+    "id": "ruqya_falaq",
+    "type": "ruqya",
+    "name_ru": "Аль-Фаляк",
+    "template_ar": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
+    "template_translit": "Куль а'узу би раббиль-фаляк",
+    "template_ru": "Скажи: Прибегаю к защите Господа рассвета",
+    "repeats_base": 3
+  },
+  "ruqya_nas": {
+    "id": "ruqya_nas",
+    "type": "ruqya",
+    "name_ru": "Ан-Нас",
+    "template_ar": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+    "template_translit": "Куль а'узу би раббин-нас",
+    "template_ru": "Скажи: Прибегаю к защите Господа людей",
+    "repeats_base": 3
+  },
+  "protection_body": {
+    "id": "protection_body",
+    "type": "protection",
+    "name_ru": "Защита тела",
+    "template_ar": "أعوذ بكلمات الله التامات من شر ما خلق",
+    "template_translit": "А'узу би калимати Лляхи т-таммати мин шарри ма халяк",
+    "template_ru": "Прибегаю к совершенным словам Аллаха от зла того, что Он создал",
+    "repeats_base": 3
+  },
+  "protection_home": {
+    "id": "protection_home",
+    "type": "protection",
+    "name_ru": "Защита дома",
+    "template_ar": "بسم الله لا يضر مع اسمه شيء",
+    "template_translit": "Бисмилляхи ля ядурру ма'асмихи шайъ",
+    "template_ru": "С именем Аллаха, ничто не повредит с Его именем",
+    "repeats_base": 3
+  },
+  "closing_doors": {
+    "id": "closing_doors",
+    "type": "closing",
+    "name_ru": "Закрытие дверей",
+    "template_ar": "اللهم أغلق أبواب الشر وافتح أبواب الخير",
+    "template_translit": "Аллахумма аглик абваба ш-шарри вафтах абваба ль-хайр",
+    "template_ru": "О Аллах, закрой двери зла и открой двери добра",
+    "repeats_base": 1
+  },
+  "water_cleansing": {
+    "id": "water_cleansing",
+    "type": "water",
+    "name_ru": "Вода для чистки",
+    "template_ar": "بسم الله شفاء من كل داء",
+    "template_translit": "Бисмилляхи шифа'ун мин кулли да'",
+    "template_ru": "С именем Аллаха, исцеление от каждой болезни",
+    "repeats_base": 7
+  },
+  "oil_protection": {
+    "id": "oil_protection",
+    "type": "oil",
+    "name_ru": "Масло для защиты",
+    "template_ar": "بسم الله نور السموات والأرض",
+    "template_translit": "Бисмилляхи нуру с-самавати ва ль-ард",
+    "template_ru": "С именем Аллаха, Свет небес и земли",
+    "repeats_base": 7
+  },
+  "final_return": {
+    "id": "final_return",
+    "type": "final",
+    "name_ru": "Возвращение зла",
+    "template_ar": "اللهم رد كيد الكائدين في نحورهم",
+    "template_translit": "Аллахумма рад кейда ль-ка'идина фи кухурихим",
+    "template_ru": "О Аллах, верни козни злодеев им же в глотки",
+    "repeats_base": 3
+  },
+  "dua_healing": {
+    "id": "dua_healing",
+    "type": "dua",
+    "name_ru": "Мольба об исцелении",
+    "template_ar": "اللهم اشفني وعافيني وارزقني العافية",
+    "template_translit": "Аллахумма шфини ва афини варзукни ль-афия",
+    "template_ru": "О Аллах, исцели меня, даруй мне благополучие и здоровье",
+    "repeats_base": 1
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "sihr_mahfi": {
+    "primary_attribute": "al_quddus",
+    "secondary_attribute": "al_ghaffar",
+    "primary_organ": "qalb",
+    "action": "cleanse"
+  },
+  "sihr_tafriq": {
+    "primary_attribute": "as_salam",
+    "secondary_attribute": "al_mu_min",
+    "primary_organ": "qalb",
+    "action": "unbind"
+  },
+  "sihr_mahabba": {
+    "primary_attribute": "al_ghaffar",
+    "secondary_attribute": "al_quddus",
+    "primary_organ": "qalb",
+    "action": "unbind"
+  },
+  "sihr_bayt": {
+    "primary_attribute": "al_muhaymin",
+    "secondary_attribute": "al_mu_min",
+    "primary_organ": "jasad",
+    "action": "cleanse"
+  },
+  "sihr_mujaddad": {
+    "primary_attribute": "al_qahhar",
+    "secondary_attribute": "al_aziz",
+    "primary_organ": "qalb",
+    "action": "expel"
+  },
+  "massas_jinn": {
+    "primary_attribute": "al_aziz",
+    "secondary_attribute": "al_jabbar",
+    "primary_organ": "sadr",
+    "action": "expel"
+  },
+  "ayn_hasida": {
+    "primary_attribute": "al_hafiz",
+    "secondary_attribute": "al_mu_min",
+    "primary_organ": "jasad",
+    "action": "cleanse"
+  },
+  "hasad": {
+    "primary_attribute": "al_mu_min",
+    "secondary_attribute": "as_salam",
+    "primary_organ": "qalb",
+    "action": "protect"
+  },
+  "waswasa_dini": {
+    "primary_attribute": "al_hadi",
+    "secondary_attribute": "al_mu_min",
+    "primary_organ": "aql",
+    "action": "heal"
+  },
+  "khawf": {
+    "primary_attribute": "al_mu_min",
+    "secondary_attribute": "as_salam",
+    "primary_organ": "qalb",
+    "action": "strengthen"
+  },
+  "huzn": {
+    "primary_attribute": "al_rahman",
+    "secondary_attribute": "al_rahim",
+    "primary_organ": "qalb",
+    "action": "heal"
+  },
+  "ghadab": {
+    "primary_attribute": "al_halim",
+    "secondary_attribute": "as_salam",
+    "primary_organ": "qalb",
+    "action": "calm"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "sihr_tafriq_standard": {
+    "id": "sihr_tafriq_standard",
+    "name_ru": "Сихр разлада — стандартная",
+    "illness_types": ["sihr_tafriq"],
+    "duration_days": 14,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "closing_doors", "dua_healing"]
+  },
+  "sihr_tafriq_home": {
+    "id": "sihr_tafriq_home",
+    "name_ru": "Сихр разлада + затронут дом",
+    "illness_types": ["sihr_tafriq"],
+    "duration_days": 18,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "protection_home", "closing_doors", "water_cleansing", "dua_healing"]
+  },
+  "sihr_mahabba": {
+    "id": "sihr_mahabba",
+    "name_ru": "Сихр привязанности (махабба)",
+    "illness_types": ["sihr_mahabba"],
+    "duration_days": 14,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "closing_doors", "final_return", "dua_healing"]
+  },
+  "sihr_mahfi": {
+    "id": "sihr_mahfi",
+    "name_ru": "Скрытый сихр (махфи)",
+    "illness_types": ["sihr_mahfi"],
+    "duration_days": 14,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "closing_doors", "dua_healing"]
+  },
+  "massas_jinn": {
+    "id": "massas_jinn",
+    "name_ru": "Касание джинна (масс)",
+    "illness_types": ["massas_jinn"],
+    "duration_days": 21,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "closing_doors", "final_return", "dua_healing"]
+  },
+  "ayn_hasida": {
+    "id": "ayn_hasida",
+    "name_ru": "Сглаз (айн)",
+    "illness_types": ["ayn_hasida"],
+    "duration_days": 10,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "water_cleansing", "dua_healing"]
+  },
+  "waswasa_dini": {
+    "id": "waswasa_dini",
+    "name_ru": "Васваса",
+    "illness_types": ["waswasa_dini"],
+    "duration_days": 10,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "closing_doors", "dua_healing"]
+  },
+  "soul_knots": {
+    "id": "soul_knots",
+    "name_ru": "Курс духовных зажимов",
+    "illness_types": ["waswasa_dini", "khawf", "huzn"],
+    "duration_days": 10,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "closing_doors", "dua_healing"]
+  },
+  "sihr_bayt": {
+    "id": "sihr_bayt",
+    "name_ru": "Сихр в доме",
+    "illness_types": ["sihr_bayt"],
+    "duration_days": 18,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_home", "closing_doors", "water_cleansing", "oil_protection", "dua_healing"]
+  },
+  "general_protection": {
+    "id": "general_protection",
+    "name_ru": "Общая защита",
+    "illness_types": [],
+    "duration_days": 7,
+    "blocks": ["ruqya_fatiha", "ruqya_ikhlas", "ruqya_falaq", "ruqya_nas", "protection_body", "protection_home", "dua_healing"]
+  }
+}

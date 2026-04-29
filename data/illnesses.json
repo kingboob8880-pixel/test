@@ -1,0 +1,110 @@
+{
+  "sihr_mahfi": {
+    "id": "sihr_mahfi",
+    "name_ru": "Скрытый сихр",
+    "name_ar": "سحر خفي",
+    "category": "sihr",
+    "severity_base": 3,
+    "duration_days": 14,
+    "description": "Колдовство скрытого типа, часто обнаруживается по косвенным признакам"
+  },
+  "sihr_tafriq": {
+    "id": "sihr_tafriq",
+    "name_ru": "Сихр разлада",
+    "name_ar": "سحر التفريق",
+    "category": "sihr",
+    "severity_base": 4,
+    "duration_days": 14,
+    "description": "Разлад между супругами, охлаждение чувств, конфликты"
+  },
+  "sihr_mahabba": {
+    "id": "sihr_mahabba",
+    "name_ru": "Сихр привязанности",
+    "name_ar": "سحر المحبة",
+    "category": "sihr",
+    "severity_base": 3,
+    "duration_days": 14,
+    "description": "Навязчивая привязанность, оковы сердца"
+  },
+  "sihr_bayt": {
+    "id": "sihr_bayt",
+    "name_ru": "Сихр в доме",
+    "name_ar": "سحر البيت",
+    "category": "sihr",
+    "severity_base": 4,
+    "duration_days": 18,
+    "description": "Колдовство, затрагивающее жилище"
+  },
+  "sihr_mujaddad": {
+    "id": "sihr_mujaddad",
+    "name_ru": "Обновляемый сихр",
+    "name_ar": "سحر متجدد",
+    "category": "sihr",
+    "severity_base": 5,
+    "duration_days": 21,
+    "description": "Сихр с признаками обновления"
+  },
+  "massas_jinn": {
+    "id": "massas_jinn",
+    "name_ru": "Касание джинна",
+    "name_ar": "مس الجن",
+    "category": "jinn",
+    "severity_base": 4,
+    "duration_days": 21,
+    "description": "Касание джинна с сильными симптомами"
+  },
+  "ayn_hasida": {
+    "id": "ayn_hasida",
+    "name_ru": "Сглаз",
+    "name_ar": "عين حاسدة",
+    "category": "ayn",
+    "severity_base": 2,
+    "duration_days": 10,
+    "description": "Сглаз с завистью после похвалы или встречи"
+  },
+  "hasad": {
+    "id": "hasad",
+    "name_ru": "Зависть",
+    "name_ar": "حسد",
+    "category": "ayn",
+    "severity_base": 2,
+    "duration_days": 7,
+    "description": "Зависть без прямого сглаза"
+  },
+  "waswasa_dini": {
+    "id": "waswasa_dini",
+    "name_ru": "Васваса",
+    "name_ar": "وسوسة دينية",
+    "category": "waswasa",
+    "severity_base": 2,
+    "duration_days": 10,
+    "description": "Навязчивые сомнения и мысли в поклонении"
+  },
+  "khawf": {
+    "id": "khawf",
+    "name_ru": "Страх",
+    "name_ar": "خوف",
+    "category": "emotional",
+    "severity_base": 2,
+    "duration_days": 7,
+    "description": "Необоснованный страх"
+  },
+  "huzn": {
+    "id": "huzn",
+    "name_ru": "Печаль",
+    "name_ar": "حزن",
+    "category": "emotional",
+    "severity_base": 2,
+    "duration_days": 7,
+    "description": "Глубокая печаль"
+  },
+  "ghadab": {
+    "id": "ghadab",
+    "name_ru": "Гнев",
+    "name_ar": "غضب",
+    "category": "emotional",
+    "severity_base": 2,
+    "duration_days": 7,
+    "description": "Неконтролируемый гнев"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "al_rahman": {
+    "id": "al_rahman",
+    "name_ar": "الرحمن",
+    "name_ru": "Милостивый",
+    "translit": "Ар-Рахман"
+  },
+  "al_rahim": {
+    "id": "al_rahim",
+    "name_ar": "الرحيم",
+    "name_ru": "Милосердный",
+    "translit": "Ар-Рахим"
+  },
+  "al_malik": {
+    "id": "al_malik",
+    "name_ar": "الملك",
+    "name_ru": "Властелин",
+    "translit": "Аль-Малик"
+  },
+  "al_quddus": {
+    "id": "al_quddus",
+    "name_ar": "القدوس",
+    "name_ru": "Святой",
+    "translit": "Аль-Куддус"
+  },
+  "as_salam": {
+    "id": "as_salam",
+    "name_ar": "السلام",
+    "name_ru": "Источник мира",
+    "translit": "Ас-Салям"
+  },
+  "al_mu_min": {
+    "id": "al_mu_min",
+    "name_ar": "المؤمن",
+    "name_ru": "Дарующий безопасность",
+    "translit": "Аль-Муъмин"
+  },
+  "al_muhaymin": {
+    "id": "al_muhaymin",
+    "name_ar": "المهيمن",
+    "name_ru": "Хранитель",
+    "translit": "Аль-Мухаймин"
+  },
+  "al_aziz": {
+    "id": "al_aziz",
+    "name_ar": "العزيز",
+    "name_ru": "Могущественный",
+    "translit": "Аль-Азиз"
+  },
+  "al_jabbar": {
+    "id": "al_jabbar",
+    "name_ar": "الجبار",
+    "name_ru": "Принуждающий",
+    "translit": "Аль-Джаббар"
+  },
+  "al_mutakabbir": {
+    "id": "al_mutakabbir",
+    "name_ar": "المتكبر",
+    "name_ru": "Величественный",
+    "translit": "Аль-Мутакаббир"
+  },
+  "al_khaliq": {
+    "id": "al_khaliq",
+    "name_ar": "الخالق",
+    "name_ru": "Творец",
+    "translit": "Аль-Халик"
+  },
+  "al_bari": {
+    "id": "al_bari",
+    "name_ar": "البارئ",
+    "name_ru": "Создатель",
+    "translit": "Аль-Бари"
+  },
+  "al_musawwir": {
+    "id": "al_musawwir",
+    "name_ar": "المصور",
+    "name_ru": "Придающий образ",
+    "translit": "Аль-Мусаввир"
+  },
+  "al_ghaffar": {
+    "id": "al_ghaffar",
+    "name_ar": "الغفار",
+    "name_ru": "Прощающий",
+    "translit": "Аль-Гаффар"
+  },
+  "al_qahhar": {
+    "id": "al_qahhar",
+    "name_ar": "القهار",
+    "name_ru": "Покоряющий",
+    "translit": "Аль-Каххар"
+  },
+  "ash_shafi": {
+    "id": "ash_shafi",
+    "name_ar": "الشافعي",
+    "name_ru": "Исцеляющий",
+    "translit": "Аш-Шафи"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "snakes": {
+    "id": "snakes",
+    "name_ru": "Змеи",
+    "interpretation": "Признак сихра, особенно если во сне",
+    "severity": 4
+  },
+  "dogs": {
+    "id": "dogs",
+    "name_ru": "Собаки",
+    "interpretation": "Джинны, особенно чёрные собаки",
+    "severity": 3
+  },
+  "falling": {
+    "id": "falling",
+    "name_ru": "Падение",
+    "interpretation": "Нестабильность состояния, масс",
+    "severity": 2
+  },
+  "darkness": {
+    "id": "darkness",
+    "name_ru": "Темнота",
+    "interpretation": "Тяжёлое состояние, депрессия",
+    "severity": 3
+  },
+  "water": {
+    "id": "water",
+    "name_ru": "Вода",
+    "interpretation": "Очищение, признак улучшения",
+    "severity": 1
+  },
+  "light": {
+    "id": "light",
+    "name_ru": "Свет",
+    "interpretation": "Исцеление, баракат",
+    "severity": 0
+  }
+}

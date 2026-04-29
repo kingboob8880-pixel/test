@@ -1,0 +1,40 @@
+{
+  "severity_multipliers": {
+    "1": 1.0,
+    "2": 1.2,
+    "3": 1.5,
+    "4": 2.0,
+    "5": 2.5
+  },
+  "detail_levels": {
+    "short": {
+      "min_formulas": 5,
+      "max_formulas": 10,
+      "include_water_oil": false,
+      "include_home_block": false
+    },
+    "medium": {
+      "min_formulas": 10,
+      "max_formulas": 20,
+      "include_water_oil": true,
+      "include_home_block": false
+    },
+    "full": {
+      "min_formulas": 15,
+      "max_formulas": 30,
+      "include_water_oil": true,
+      "include_home_block": true
+    }
+  },
+  "duration_presets": [3, 7, 10, 14, 18, 21, 30, 45, 60, 90],
+  "max_duration": 120,
+  "default_repeats": {
+    "ruqya": 3,
+    "protection": 3,
+    "closing": 1,
+    "water": 7,
+    "oil": 7,
+    "final": 3,
+    "dua": 1
+  }
+}

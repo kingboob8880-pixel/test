@@ -1,0 +1,32 @@
+{
+  "cupping": {
+    "id": "cupping",
+    "name_ru": "Хиджама",
+    "description": "Лечебное кровопускание по Сунне"
+  },
+  "black_seed": {
+    "id": "black_seed",
+    "name_ru": "Чёрный тмин",
+    "description": "Приём чёрного тмина натощак"
+  },
+  "honey": {
+    "id": "honey",
+    "name_ru": "Мёд",
+    "description": "Натуральный мёд с водой"
+  },
+  "olive_oil": {
+    "id": "olive_oil",
+    "name_ru": "Оливковое масло",
+    "description": "Масло для растирания и приёма внутрь"
+  },
+  "water_ruqya": {
+    "id": "water_ruqya",
+    "name_ru": "Вода после рукьи",
+    "description": "Питьё и омовение водой, на которую читали Коран"
+  },
+  "bathing": {
+    "id": "bathing",
+    "name_ru": "Омовение",
+    "description": "Полное омовение с сидром"
+  }
+}
