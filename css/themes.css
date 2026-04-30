@@ -1,0 +1,134 @@
+/**
+ * RUKYA PRO — Темы оформления (10 тем)
+ * Ash-Shifa · Абу Мухаммад
+ */
+
+/* Classic Gold (Default) */
+.theme-classic-gold {
+  --primary-color: #D4AF37;
+  --primary-dark: #B89628;
+  --primary-light: #E8C85A;
+  --secondary-color: #1a1a2e;
+  --accent-color: #0f3460;
+}
+
+/* Emerald */
+.theme-emerald {
+  --primary-color: #50C878;
+  --primary-dark: #3DA860;
+  --primary-light: #7AE09A;
+  --secondary-color: #0a291a;
+  --accent-color: #1b4d3e;
+}
+
+/* Night */
+.theme-night {
+  --primary-color: #6c5ce7;
+  --primary-dark: #5b4cdb;
+  --primary-light: #8d7ef5;
+  --secondary-color: #0a0a1a;
+  --accent-color: #1e1e3f;
+  --bg-color: #0d0d1a;
+  --surface-color: #1a1a2e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #b0b0c0;
+  --border-color: #2a2a4e;
+}
+
+/* Royal */
+.theme-royal {
+  --primary-color: #7c3aed;
+  --primary-dark: #6d28d9;
+  --primary-light: #9f67ff;
+  --secondary-color: #1a0a2e;
+  --accent-color: #3b0764;
+}
+
+/* Desert */
+.theme-desert {
+  --primary-color: #d97706;
+  --primary-dark: #b45309;
+  --primary-light: #fbbf24;
+  --secondary-color: #2a1a0a;
+  --accent-color: #78350f;
+  --bg-color: #fef3c7;
+}
+
+/* Pearl */
+.theme-pearl {
+  --primary-color: #94a3b8;
+  --primary-dark: #64748b;
+  --primary-light: #cbd5e1;
+  --secondary-color: #0f172a;
+  --accent-color: #334155;
+  --bg-color: #f1f5f9;
+}
+
+/* Marine */
+.theme-marine {
+  --primary-color: #0ea5e9;
+  --primary-dark: #0284c7;
+  --primary-light: #38bdf8;
+  --secondary-color: #0a1a2e;
+  --accent-color: #0c4a6e;
+}
+
+/* Sage */
+.theme-sage {
+  --primary-color: #84a98c;
+  --primary-dark: #6b8f73;
+  --primary-light: #9fc4a6;
+  --secondary-color: #1a2a1f;
+  --accent-color: #355040;
+  --bg-color: #f5f7f5;
+}
+
+/* Sky */
+.theme-sky {
+  --primary-color: #38bdf8;
+  --primary-dark: #0ea5e9;
+  --primary-light: #7dd3fc;
+  --secondary-color: #0a1a2e;
+  --accent-color: #0c4a6e;
+  --bg-color: #f0f9ff;
+}
+
+/* Obsidian */
+.theme-obsidian {
+  --primary-color: #374151;
+  --primary-dark: #1f2937;
+  --primary-light: #6b7280;
+  --secondary-color: #0a0a0a;
+  --accent-color: #1a1a1a;
+  --bg-color: #111111;
+  --surface-color: #1a1a1a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #9ca3af;
+  --border-color: #2a2a2a;
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  --primary-color: #0000ff;
+  --primary-dark: #0000cc;
+  --primary-light: #3333ff;
+  --secondary-color: #000000;
+  --accent-color: #000080;
+  --bg-color: #ffffff;
+  --surface-color: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --border-color: #000000;
+}
+
+/* Theme Transition */
+body[class*="theme-"] {
+  transition: background-color var(--transition-base), 
+              color var(--transition-base);
+}
+
+/* Custom Color Picker Support */
+.custom-theme {
+  /* Variables will be set via JavaScript */
+}

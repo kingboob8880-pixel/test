@@ -1,74 +1,158 @@
 {
-  "sihr_mahfi": {
-    "primary_attribute": "al_quddus",
-    "secondary_attribute": "al_ghaffar",
-    "primary_organ": "qalb",
-    "action": "cleanse"
+  "version": "2.0",
+  "description": "Расширенная матрица соответствий для диагностики и подбора формул",
+  "mappings": [
+    {
+      "illness": "sihr_tafriq",
+      "name": "Сихр разлада",
+      "attributes": ["al-Wadud", "al-Jami", "al-Muqaddim", "al-Muakhkhir"],
+      "organs": ["qalb", "sadr"],
+      "actions": ["fakk", "tahlil", "jam"],
+      "verses": ["ayat_kursi", "ayat_tafriq"],
+      "priority": 1,
+      "severity_multiplier": 1.5
+    },
+    {
+      "illness": "sihr_mahfi",
+      "name": "Скрытый сихр",
+      "attributes": ["al-Khabir", "al-Baseer", "al-Alim", "an-Nur"],
+      "organs": ["qalb", "batn", "ras"],
+      "actions": ["kashf", "ikhraj", "tathir"],
+      "verses": ["ayat_kursi", "ayat_sitr"],
+      "priority": 2,
+      "severity_multiplier": 1.3
+    },
+    {
+      "illness": "sihr_mahabba",
+      "name": "Сихр привязанности",
+      "attributes": ["al-Wadud", "al-Ghani", "al-Mughni", "al-Fattah"],
+      "organs": ["qalb", "aql"],
+      "actions": ["fakk", "tahrir", "fath"],
+      "verses": ["ayat_fath", "ayat_hubb"],
+      "priority": 1,
+      "severity_multiplier": 1.4
+    },
+    {
+      "illness": "sihr_bayt",
+      "name": "Сихр в доме",
+      "attributes": ["al-Hafiz", "al-Muhaymin", "as-Salam", "al-Qahhar"],
+      "organs": ["jasad"],
+      "actions": ["tathir", "hifz", "ikhraj"],
+      "verses": ["ayat_bayt", "ayat_kursi"],
+      "priority": 3,
+      "severity_multiplier": 1.2,
+      "requires_home_block": true
+    },
+    {
+      "illness": "massas_jinn",
+      "name": "Касание джинна",
+      "attributes": ["al-Qahhar", "al-Muntaqim", "Dhu-l-Quwwa", "al-Aziz"],
+      "organs": ["batn", "zahr", "qalb"],
+      "actions": ["ikhraj", "qahr", "tard"],
+      "verses": ["ayat_jinn", "ayat_ikhraj"],
+      "priority": 1,
+      "severity_multiplier": 1.6,
+      "jinn_types": ["marid", "amir", "qarin"]
+    },
+    {
+      "illness": "ayn_hasida",
+      "name": "Сглаз с завистью",
+      "attributes": ["al-Hasib", "al-Wakil", "al-Kafi", "an-Nafi"],
+      "organs": ["ras", "qalb", "jasad"],
+      "actions": ["ghasil", "shifa", "hifz"],
+      "verses": ["ayat_ayn", "ayat_hasad"],
+      "priority": 2,
+      "severity_multiplier": 1.1
+    },
+    {
+      "illness": "waswasa_dini",
+      "name": "Религиозная васваса",
+      "attributes": ["al-Hadi", "as-Salam", "ar-Razzaq", "al-Ghafur"],
+      "organs": ["aql", "qalb"],
+      "actions": ["sakinah", "huda", "maghfirah"],
+      "verses": ["ayat_waswasa", "ayat_sakinah"],
+      "priority": 3,
+      "severity_multiplier": 1.0
+    },
+    {
+      "illness": "khawf",
+      "name": "Страх",
+      "attributes": ["al-Amin", "as-Salam", "al-Hafiz", "al-Wakil"],
+      "organs": ["qalb", "sadr"],
+      "actions": ["sakinah", "aman", "quwwah"],
+      "verses": ["ayat_khawf", "ayat_sakinah"],
+      "priority": 4,
+      "severity_multiplier": 1.0
+    },
+    {
+      "illness": "huzn",
+      "name": "Печаль",
+      "attributes": ["ar-Rahman", "ar-Rahim", "al-Wadud", "al-Latif"],
+      "organs": ["qalb", "sadr"],
+      "actions": ["faraj", "rahmah", "surrur"],
+      "verses": ["ayat_huzn", "ayat_faraj"],
+      "priority": 4,
+      "severity_multiplier": 0.9
+    },
+    {
+      "illness": "ghadab",
+      "name": "Гнев",
+      "attributes": ["al-Halim", "al-Afuw", "as-Sabur", "al-Ghafur"],
+      "organs": ["qalb", "ras"],
+      "actions": ["sakinah", "hilm", "ghufron"],
+      "verses": ["ayat_ghadab", "ayat_hilm"],
+      "priority": 5,
+      "severity_multiplier": 0.8
+    }
+  ],
+  "organ_attribute_synergy": {
+    "qalb": ["al-Wadud", "as-Salam", "ar-Rahman", "al-Ghafur"],
+    "sadr": ["ash-Shafi", "an-Nur", "al-Fattah", "as-Salam"],
+    "batn": ["al-Qahhar", "al-Muntaqim", "at-Tahir", "al-Khabir"],
+    "ras": ["al-Alim", "an-Nur", "al-Hadi", "al-Baseer"],
+    "aql": ["al-Hakim", "al-Alim", "al-Hadi", "ar-Rashid"],
+    "jasad": ["al-Qawiyy", "al-Aziz", "ash-Shafi", "al-Muafi"],
+    "zahr": ["al-Qahhar", "al-Muntaqim", "al-Aziz", "Dhu-l-Quwwa"],
+    "unuq": ["al-Fattah", "an-Nur", "ash-Shafi", "al-Karim"],
+    "yadayn": ["al-Qawiyy", "al-Aziz", "al-Fattah", "al-Ghani"],
+    "rijlayn": ["al-Qawiyy", "al-Matin", "al-Hadi", "ath-Thabit"]
   },
-  "sihr_tafriq": {
-    "primary_attribute": "as_salam",
-    "secondary_attribute": "al_mu_min",
-    "primary_organ": "qalb",
-    "action": "unbind"
+  "action_templates": {
+    "fakk": "развязать узлы",
+    "tahlil": "растворить",
+    "jam": "собрать",
+    "kashf": "открыть",
+    "ikhraj": "изгнать",
+    "tathir": "очистить",
+    "hifz": "защитить",
+    "qahr": "подавить",
+    "tard": "прогнать",
+    "ghasil": "смыть",
+    "shifa": "исцелить",
+    "sakinah": "ниспослать спокойствие",
+    "huda": "наставить",
+    "maghfirah": "простить",
+    "aman": "даровать безопасность",
+    "quwwah": "укрепить",
+    "faraj": "облегчить",
+    "rahmah": "помилловать",
+    "surrur": "даровать радость",
+    "hilm": "даровать кротость",
+    "ghufron": "покрыть прощением",
+    "tahrir": "освободить",
+    "fath": "открыть"
   },
-  "sihr_mahabba": {
-    "primary_attribute": "al_ghaffar",
-    "secondary_attribute": "al_quddus",
-    "primary_organ": "qalb",
-    "action": "unbind"
-  },
-  "sihr_bayt": {
-    "primary_attribute": "al_muhaymin",
-    "secondary_attribute": "al_mu_min",
-    "primary_organ": "jasad",
-    "action": "cleanse"
-  },
-  "sihr_mujaddad": {
-    "primary_attribute": "al_qahhar",
-    "secondary_attribute": "al_aziz",
-    "primary_organ": "qalb",
-    "action": "expel"
-  },
-  "massas_jinn": {
-    "primary_attribute": "al_aziz",
-    "secondary_attribute": "al_jabbar",
-    "primary_organ": "sadr",
-    "action": "expel"
-  },
-  "ayn_hasida": {
-    "primary_attribute": "al_hafiz",
-    "secondary_attribute": "al_mu_min",
-    "primary_organ": "jasad",
-    "action": "cleanse"
-  },
-  "hasad": {
-    "primary_attribute": "al_mu_min",
-    "secondary_attribute": "as_salam",
-    "primary_organ": "qalb",
-    "action": "protect"
-  },
-  "waswasa_dini": {
-    "primary_attribute": "al_hadi",
-    "secondary_attribute": "al_mu_min",
-    "primary_organ": "aql",
-    "action": "heal"
-  },
-  "khawf": {
-    "primary_attribute": "al_mu_min",
-    "secondary_attribute": "as_salam",
-    "primary_organ": "qalb",
-    "action": "strengthen"
-  },
-  "huzn": {
-    "primary_attribute": "al_rahman",
-    "secondary_attribute": "al_rahim",
-    "primary_organ": "qalb",
-    "action": "heal"
-  },
-  "ghadab": {
-    "primary_attribute": "al_halim",
-    "secondary_attribute": "as_salam",
-    "primary_organ": "qalb",
-    "action": "calm"
+  "combination_rules": [
+    {"if": ["sihr_tafriq", "house_symptoms"], "then": "add_sihr_bayt", "priority_boost": 1},
+    {"if": ["massas_jinn", "sihr_any"], "then": "prioritize_jinn_first", "note": "Сначала изгнать джинна, затем лечить сихр"},
+    {"if": ["ayn_hasida", "waswasa_dini"], "then": "treat_ayn_first", "note": "Сначала смыть сглаз, затем лечить васвасу"},
+    {"if": ["sihr_mahfi", "massas_jinn"], "then": "combined_approach", "note": "Комбинированный подход с акцентом на изгнание"}
+  ],
+  "severity_adjustments": {
+    "1": {"repeat_min": 3, "repeat_max": 7, "days_min": 7, "days_max": 10},
+    "2": {"repeat_min": 7, "repeat_max": 11, "days_min": 10, "days_max": 14},
+    "3": {"repeat_min": 11, "repeat_max": 21, "days_min": 14, "days_max": 21},
+    "4": {"repeat_min": 21, "repeat_max": 41, "days_min": 21, "days_max": 30},
+    "5": {"repeat_min": 41, "repeat_max": 99, "days_min": 30, "days_max": 45}
   }
 }

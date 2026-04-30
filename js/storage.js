@@ -3,9 +3,7 @@
  * Ash-Shifa · Абу Мухаммад
  */
 
-const DB_NAME = 'RukyaProDB';
-const DB_VERSION = 1;
-
+// Store names
 const STORES = {
   PATIENTS: 'patients',
   PLANS: 'plans',
@@ -17,83 +15,77 @@ const STORES = {
   QUESTIONNAIRES: 'questionnaires'
 };
 
-class Storage {
-  constructor() {
-    this.db = null;
-    this.ready = this.init();
-  }
-
-  async init() {
-    return new Promise((resolve, reject) => {
-      const request = indexedDB.open(DB_NAME, DB_VERSION);
-
+const Storage = {
+  dbName: 'RukyaProDB',
+  version: 1,
+  db: null,
+  
+  // Promise that resolves when DB is ready
+  ready: null,
+  
+  init() {
+    this.ready = new Promise((resolve, reject) => {
+      const request = indexedDB.open(this.dbName, this.version);
+      
       request.onerror = () => reject(request.error);
       request.onsuccess = () => {
         this.db = request.result;
         resolve(this.db);
       };
-
+      
       request.onupgradeneeded = (event) => {
         const db = event.target.result;
-
-        // Patients store
+        
+        // Create object stores
         if (!db.objectStoreNames.contains(STORES.PATIENTS)) {
-          const patients = db.createObjectStore(STORES.PATIENTS, { keyPath: 'id' });
-          patients.createIndex('name', 'name', { unique: false });
-          patients.createIndex('status', 'status', { unique: false });
-          patients.createIndex('group', 'group', { unique: false });
-          patients.createIndex('deletedAt', 'deletedAt', { unique: false });
-          patients.createIndex('archivedAt', 'archivedAt', { unique: false });
+          const patientStore = db.createObjectStore(STORES.PATIENTS, { keyPath: 'id' });
+          patientStore.createIndex('status', 'status', { unique: false });
+          patientStore.createIndex('group', 'group', { unique: false });
+          patientStore.createIndex('deletedAt', 'deletedAt', { unique: false });
         }
-
-        // Plans store
+        
         if (!db.objectStoreNames.contains(STORES.PLANS)) {
-          const plans = db.createObjectStore(STORES.PLANS, { keyPath: 'id' });
-          plans.createIndex('patientId', 'patientId', { unique: false });
-          plans.createIndex('status', 'status', { unique: false });
+          const planStore = db.createObjectStore(STORES.PLANS, { keyPath: 'id' });
+          planStore.createIndex('patientId', 'patientId', { unique: false });
+          planStore.createIndex('status', 'status', { unique: false });
         }
-
-        // Certificates store
+        
         if (!db.objectStoreNames.contains(STORES.CERTIFICATES)) {
-          const certs = db.createObjectStore(STORES.CERTIFICATES, { keyPath: 'id' });
-          certs.createIndex('patientId', 'patientId', { unique: false });
+          const certStore = db.createObjectStore(STORES.CERTIFICATES, { keyPath: 'id' });
+          certStore.createIndex('patientId', 'patientId', { unique: false });
         }
-
-        // Settings store
+        
         if (!db.objectStoreNames.contains(STORES.SETTINGS)) {
           db.createObjectStore(STORES.SETTINGS, { keyPath: 'key' });
         }
-
-        // History store (audit log)
+        
         if (!db.objectStoreNames.contains(STORES.HISTORY)) {
-          const history = db.createObjectStore(STORES.HISTORY, { keyPath: 'id', autoIncrement: true });
-          history.createIndex('entityType', 'entityType', { unique: false });
-          history.createIndex('entityId', 'entityId', { unique: false });
-          history.createIndex('timestamp', 'timestamp', { unique: false });
+          const historyStore = db.createObjectStore(STORES.HISTORY, { keyPath: 'id' });
+          historyStore.createIndex('entityType', 'entityType', { unique: false });
+          historyStore.createIndex('entityId', 'entityId', { unique: false });
         }
-
-        // Groups store
+        
         if (!db.objectStoreNames.contains(STORES.GROUPS)) {
           db.createObjectStore(STORES.GROUPS, { keyPath: 'id' });
         }
-
-        // Appointments store
+        
         if (!db.objectStoreNames.contains(STORES.APPOINTMENTS)) {
-          const appointments = db.createObjectStore(STORES.APPOINTMENTS, { keyPath: 'id' });
-          appointments.createIndex('patientId', 'patientId', { unique: false });
-          appointments.createIndex('date', 'date', { unique: false });
+          const apptStore = db.createObjectStore(STORES.APPOINTMENTS, { keyPath: 'id' });
+          apptStore.createIndex('patientId', 'patientId', { unique: false });
+          apptStore.createIndex('date', 'date', { unique: false });
         }
-
-        // Questionnaires store
+        
         if (!db.objectStoreNames.contains(STORES.QUESTIONNAIRES)) {
-          const questionnaires = db.createObjectStore(STORES.QUESTIONNAIRES, { keyPath: 'id' });
-          questionnaires.createIndex('patientId', 'patientId', { unique: false });
-          questionnaires.createIndex('type', 'type', { unique: false });
+          const qStore = db.createObjectStore(STORES.QUESTIONNAIRES, { keyPath: 'id' });
+          qStore.createIndex('patientId', 'patientId', { unique: false });
         }
       };
     });
-  }
-
+    
+    return this.ready;
+  },
+  
+  // Generic CRUD operations
   async get(storeName, id) {
     await this.ready;
     return new Promise((resolve, reject) => {
@@ -103,142 +95,125 @@ class Storage {
       request.onsuccess = () => resolve(request.result);
       request.onerror = () => reject(request.error);
     });
-  }
-
-  async getAll(storeName, indexName = null, value = null) {
+  },
+  
+  async getAll(storeName) {
     await this.ready;
     return new Promise((resolve, reject) => {
       const tx = this.db.transaction(storeName, 'readonly');
       const store = tx.objectStore(storeName);
-      let request;
-      if (indexName && value !== null) {
-        const index = store.index(indexName);
-        request = index.getAll(value);
-      } else {
-        request = store.getAll();
-      }
-      request.onsuccess = () => resolve(request.result);
+      const request = store.getAll();
+      request.onsuccess = () => resolve(request.result || []);
       request.onerror = () => reject(request.error);
     });
-  }
-
+  },
+  
   async put(storeName, item) {
     await this.ready;
-    return new Promise(async (resolve, reject) => {
+    
+    // Add metadata
+    if (!item.id) {
+      item.id = Utils.generateId();
+    }
+    item.updatedAt = new Date().toISOString();
+    
+    // Log history
+    await this.logHistory(storeName, item.id, 'update', item);
+    
+    return new Promise((resolve, reject) => {
       const tx = this.db.transaction(storeName, 'readwrite');
       const store = tx.objectStore(storeName);
-      
-      // Add audit log
-      if (item.id) {
-        await this.logHistory(storeName, item.id, 'update', item);
-      }
-      
       const request = store.put(item);
-      request.onsuccess = () => resolve(request.result);
+      request.onsuccess = () => resolve(item);
       request.onerror = () => reject(request.error);
     });
-  }
-
-  async delete(storeName, id, soft = true) {
+  },
+  
+  async delete(storeName, id) {
     await this.ready;
     
-    if (soft && storeName === STORES.PATIENTS) {
-      // Soft delete for patients
-      const patient = await this.get(storeName, id);
-      if (patient) {
-        patient.deletedAt = Date.now();
-        return this.put(storeName, patient);
-      }
+    // Soft delete - mark as deleted instead of removing
+    const item = await this.get(storeName, id);
+    if (item) {
+      item.deletedAt = new Date().toISOString();
+      return this.put(storeName, item);
     }
     
-    return new Promise(async (resolve, reject) => {
-      const tx = this.db.transaction(storeName, 'readwrite');
-      const store = tx.objectStore(storeName);
-      
-      // Add audit log
-      await this.logHistory(storeName, id, 'delete', null);
-      
-      const request = store.delete(id);
-      request.onsuccess = () => resolve();
-      request.onerror = () => reject(request.error);
-    });
-  }
-
-  async archive(storeName, id) {
-    await this.ready;
-    const item = await this.get(storeName, id);
-    if (item) {
-      item.archivedAt = Date.now();
-      return this.put(storeName, item);
-    }
-  }
-
-  async restore(storeName, id) {
-    await this.ready;
-    const item = await this.get(storeName, id);
-    if (item) {
-      delete item.deletedAt;
-      delete item.archivedAt;
-      return this.put(storeName, item);
-    }
-  }
-
-  async logHistory(entityType, entityId, action, data) {
-    try {
-      const entry = {
-        entityType,
-        entityId,
-        action,
-        data: JSON.parse(JSON.stringify(data)),
-        timestamp: Date.now()
-      };
-      await this.put(STORES.HISTORY, entry);
-    } catch (e) {
-      console.warn('History logging failed:', e);
-    }
-  }
-
-  async exportAll() {
-    await this.ready;
-    const exportData = {};
-    for (const store of Object.values(STORES)) {
-      exportData[store] = await this.getAll(store);
-    }
-    return exportData;
-  }
-
-  async importAll(data) {
-    await this.ready;
-    for (const [storeName, items] of Object.entries(data)) {
-      if (STORES[storeName.toUpperCase()] && Array.isArray(items)) {
-        for (const item of items) {
-          await this.put(storeName, item);
-        }
-      }
-    }
-  }
-
-  async clearAll() {
-    await this.ready;
-    for (const store of Object.values(STORES)) {
-      await this.clear(store);
-    }
-  }
-
-  async clear(storeName) {
+    return null;
+  },
+  
+  async hardDelete(storeName, id) {
     await this.ready;
     return new Promise((resolve, reject) => {
       const tx = this.db.transaction(storeName, 'readwrite');
       const store = tx.objectStore(storeName);
-      const request = store.clear();
+      const request = store.delete(id);
       request.onsuccess = () => resolve();
       request.onerror = () => reject(request.error);
     });
+  },
+  
+  // History logging
+  async logHistory(storeName, entityId, action, data) {
+    try {
+      const historyItem = {
+        id: Utils.generateId(),
+        entityType: storeName,
+        entityId,
+        action,
+        data: JSON.parse(JSON.stringify(data)), // Deep clone
+        timestamp: new Date().toISOString()
+      };
+      
+      const tx = this.db.transaction(STORES.HISTORY, 'readwrite');
+      const store = tx.objectStore(STORES.HISTORY);
+      store.put(historyItem);
+    } catch (error) {
+      console.warn('History logging failed:', error);
+    }
+  },
+  
+  // Export all data
+  async exportAll() {
+    await this.ready;
+    const data = {};
+    
+    for (const storeName of Object.values(STORES)) {
+      data[storeName] = await this.getAll(storeName);
+    }
+    
+    return data;
+  },
+  
+  // Import all data
+  async importAll(data) {
+    await this.ready;
+    
+    for (const [storeName, items] of Object.entries(data)) {
+      if (Array.isArray(items)) {
+        const tx = this.db.transaction(storeName, 'readwrite');
+        const store = tx.objectStore(storeName);
+        for (const item of items) {
+          store.put(item);
+        }
+      }
+    }
+  },
+  
+  // Clear all data
+  async clearAll() {
+    await this.ready;
+    
+    for (const storeName of Object.values(STORES)) {
+      const tx = this.db.transaction(storeName, 'readwrite');
+      const store = tx.objectStore(storeName);
+      store.clear();
+    }
   }
-}
+};
 
-// Singleton instance
-const storage = new Storage();
+// Initialize storage
+const storage = Storage.init();
 
 // Export for modules
 if (typeof module !== 'undefined' && module.exports) {

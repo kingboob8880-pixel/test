@@ -1,0 +1,48 @@
+{
+  "name": "RUKYA PRO",
+  "short_name": "RukyaPro",
+  "description": "Профессиональная система для специалистов по рукье",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#d97706",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%230f172a'/%3E%3Cpath d='M256 64 L320 192 L448 192 L352 320 L384 448 L256 384 L128 448 L160 320 L64 192 L192 192 Z' fill='%23d97706'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%230f172a'/%3E%3Cpath d='M256 64 L320 192 L448 192 L352 320 L384 448 L256 384 L128 448 L160 320 L64 192 L192 192 Z' fill='%23d97706'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Новый пациент",
+      "short_name": "Новый",
+      "description": "Добавить нового пациента",
+      "url": "/index.html#/newcase",
+      "icons": [{ "src": "data:image/svg+xml,...", "sizes": "96x96" }]
+    },
+    {
+      "name": "Пациенты",
+      "short_name": "База",
+      "description": "Список пациентов",
+      "url": "/index.html#/patients",
+      "icons": [{ "src": "data:image/svg+xml,...", "sizes": "96x96" }]
+    },
+    {
+      "name": "Дашборд",
+      "short_name": "Статус",
+      "description": "Обзор за сегодня",
+      "url": "/index.html#/dashboard",
+      "icons": [{ "src": "data:image/svg+xml,...", "sizes": "96x96" }]
+    }
+  ]
+}

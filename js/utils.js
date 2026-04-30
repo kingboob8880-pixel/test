@@ -4,43 +4,43 @@
  */
 
 const Utils = {
-  // Генерация уникального ID
+  // Generate unique ID
   generateId() {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
   },
-
-  // Форматирование даты
-  formatDate(timestamp, options = {}) {
-    const date = new Date(timestamp);
+  
+  // Format date to Russian locale
+  formatDate(dateString, options = {}) {
+    if (!dateString) return '';
+    
+    const date = new Date(dateString);
     const defaultOptions = { 
       year: 'numeric', 
       month: 'long', 
       day: 'numeric' 
     };
-    return date.toLocaleString('ru-RU', { ...defaultOptions, ...options });
+    
+    return date.toLocaleDateString('ru-RU', { ...defaultOptions, ...options });
   },
-
-  // Форматирование относительного времени
-  formatRelativeTime(timestamp) {
-    const now = Date.now();
-    const diff = now - timestamp;
-    const minutes = Math.floor(diff / 60000);
-    const hours = Math.floor(diff / 3600000);
-    const days = Math.floor(diff / 86400000);
-
-    if (minutes < 1) return 'только что';
-    if (minutes < 60) return `${minutes} мин. назад`;
-    if (hours < 24) return `${hours} ч. назад`;
-    if (days < 7) return `${days} дн. назад`;
-    return this.formatDate(timestamp);
+  
+  // Format relative time (e.g., "2 часа назад")
+  formatRelativeTime(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMs / 3600000);
+    const diffDays = Math.floor(diffMs / 86400000);
+    
+    if (diffMins < 1) return 'только что';
+    if (diffMins < 60) return `${diffMins} мин. назад`;
+    if (diffHours < 24) return `${diffHours} ч. назад`;
+    if (diffDays < 7) return `${diffDays} дн. назад`;
+    
+    return this.formatDate(dateString);
   },
-
-  // Глубокое копирование объекта
-  deepClone(obj) {
-    return JSON.parse(JSON.stringify(obj));
-  },
-
-  // Debounce функция
+  
+  // Debounce function
   debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -52,8 +52,8 @@ const Utils = {
       timeout = setTimeout(later, wait);
     };
   },
-
-  // Throttle функция
+  
+  // Throttle function
   throttle(func, limit) {
     let inThrottle;
     return function(...args) {
@@ -64,116 +64,41 @@ const Utils = {
       }
     };
   },
-
-  // Скачивание файла
-  downloadFile(filename, content, type = 'application/json') {
-    const blob = new Blob([content], { type });
+  
+  // Search match helper
+  searchMatch(text, query) {
+    if (!text || !query) return false;
+    return text.toLowerCase().includes(query.toLowerCase());
+  },
+  
+  // Read file as text
+  readFileAsText(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error);
+      reader.readAsText(file);
+    });
+  },
+  
+  // Download file
+  downloadFile(content, filename, mimeType = 'application/json') {
+    const blob = new Blob([content], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
     a.download = filename;
-    document.body.appendChild(a);
     a.click();
-    document.body.removeChild(a);
     URL.revokeObjectURL(url);
   },
-
-  // Чтение файла как текст
-  readFileAsText(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.onerror = (e) => reject(e);
-      reader.readAsText(file);
-    });
-  },
-
-  // Чтение файла как DataURL
-  readFileAsDataURL(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.onerror = (e) => reject(e);
-      reader.readAsDataURL(file);
-    });
-  },
-
-  // Проверка на пустой объект
-  isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-  },
-
-  // Безопасное получение вложенного свойства
-  getNested(obj, path, defaultValue = null) {
-    return path.split('.').reduce((acc, part) => {
-      return acc && acc[part] !== undefined ? acc[part] : defaultValue;
-    }, obj);
-  },
-
-  // Группировка массива по ключу
-  groupBy(array, keyFn) {
-    return array.reduce((result, item) => {
-      const key = typeof keyFn === 'function' ? keyFn(item) : item[keyFn];
-      if (!result[key]) {
-        result[key] = [];
-      }
-      result[key].push(item);
-      return result;
-    }, {});
-  },
-
-  // Сортировка массива объектов
-  sortBy(array, key, order = 'asc') {
-    return [...array].sort((a, b) => {
-      const aVal = a[key];
-      const bVal = b[key];
-      const comparison = aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
-      return order === 'desc' ? -comparison : comparison;
-    });
-  },
-
-  // Поиск с учётом регистра
-  searchMatch(text, query) {
-    if (!query) return true;
-    return text.toLowerCase().includes(query.toLowerCase());
-  },
-
-  // Обрезка текста
-  truncate(text, maxLength = 100, suffix = '...') {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength - suffix.length) + suffix;
-  },
-
-  // Capitalize first letter
-  capitalize(str) {
-    if (!str) return '';
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  },
-
-  // Транслитерация (базовая)
-  transliterate(word) {
-    const a = {
-      "ё":"yo", "а":"a", "б":"b", "в":"v", "г":"g", "д":"d", "е":"e", "ж":"zh",
-      "з":"z", "и":"i", "й":"y", "к":"k", "л":"l", "м":"m", "н":"n", "о":"o",
-      "п":"p", "р":"r", "с":"s", "т":"t", "у":"u", "ф":"f", "х":"h", "ц":"c",
-      "ч":"ch", "ш":"sh", "щ":"sh", "ъ":"", "ы":"y", "ь":"", "э":"e", "ю":"yu",
-      "я":"ya"
-    };
-    return word.toLowerCase().split('').map(char => a[char] || char).join('');
-  },
-
-  // Проверка на мобильное устройство
-  isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  },
-
-  // Копирование в буфер обмена
+  
+  // Copy to clipboard
   async copyToClipboard(text) {
     try {
       await navigator.clipboard.writeText(text);
       return true;
-    } catch (err) {
-      // Fallback для старых браузеров
+    } catch (error) {
+      // Fallback for older browsers
       const textarea = document.createElement('textarea');
       textarea.value = text;
       document.body.appendChild(textarea);
@@ -183,32 +108,202 @@ const Utils = {
       return true;
     }
   },
-
-  // Форматирование числа с разделителями
-  formatNumber(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  
+  // Parse JSON safely
+  safeJsonParse(str, defaultValue = null) {
+    try {
+      return JSON.parse(str);
+    } catch (error) {
+      return defaultValue;
+    }
   },
-
-  // Процент выполнения
-  calculateProgress(current, total) {
-    if (total === 0) return 0;
-    return Math.round((current / total) * 100);
+  
+  // Deep clone object
+  deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
   },
-
-  // Sleep utility
+  
+  // Get initials from name
+  getInitials(name) {
+    if (!name) return '';
+    return name
+      .split(' ')
+      .map(n => n.charAt(0))
+      .slice(0, 2)
+      .join('')
+      .toUpperCase();
+  },
+  
+  // Calculate age from birth date
+  calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
+  },
+  
+  // Validate email
+  isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  },
+  
+  // Validate phone (Russian format)
+  isValidPhone(phone) {
+    return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(phone.replace(/\s/g, ''));
+  },
+  
+  // Format phone for display
+  formatPhone(phone) {
+    const cleaned = phone.replace(/\D/g, '');
+    if (cleaned.length === 11 && cleaned.startsWith('7')) {
+      return `+7 (${cleaned.slice(1, 4)}) ${cleaned.slice(4, 7)}-${cleaned.slice(7, 9)}-${cleaned.slice(9)}`;
+    }
+    return phone;
+  },
+  
+  // Count words in text
+  countWords(text) {
+    return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+  },
+  
+  // Truncate text
+  truncate(text, maxLength, suffix = '...') {
+    if (!text || text.length <= maxLength) return text;
+    return text.slice(0, maxLength - suffix.length) + suffix;
+  },
+  
+  // Capitalize first letter
+  capitalize(str) {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  },
+  
+  // Random item from array
+  randomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  },
+  
+  // Shuffle array
+  shuffle(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  },
+  
+  // Group array by key
+  groupBy(array, key) {
+    return array.reduce((result, item) => {
+      const groupKey = typeof key === 'function' ? key(item) : item[key];
+      if (!result[groupKey]) {
+        result[groupKey] = [];
+      }
+      result[groupKey].push(item);
+      return result;
+    }, {});
+  },
+  
+  // Sum array values
+  sum(array, key) {
+    if (typeof key === 'function') {
+      return array.reduce((acc, item) => acc + key(item), 0);
+    }
+    return array.reduce((acc, item) => acc + (item[key] || 0), 0);
+  },
+  
+  // Average array values
+  average(array, key) {
+    if (array.length === 0) return 0;
+    return this.sum(array, key) / array.length;
+  },
+  
+  // Check if object is empty
+  isEmpty(obj) {
+    if (!obj) return true;
+    if (Array.isArray(obj)) return obj.length === 0;
+    if (typeof obj === 'object') return Object.keys(obj).length === 0;
+    return false;
+  },
+  
+  // Sleep/delay
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   },
-
-  // Retry с экспоненциальной задержкой
-  async retry(fn, retries = 3, delay = 1000) {
-    try {
-      return await fn();
-    } catch (error) {
-      if (retries === 0) throw error;
-      await this.sleep(delay);
-      return this.retry(fn, retries - 1, delay * 2);
+  
+  // Retry function with exponential backoff
+  async retry(fn, maxAttempts = 3, delay = 1000) {
+    let lastError;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        return await fn();
+      } catch (error) {
+        lastError = error;
+        if (attempt < maxAttempts) {
+          await this.sleep(delay * Math.pow(2, attempt - 1));
+        }
+      }
     }
+    throw lastError;
+  },
+  
+  // Animate counter
+  animateCounter(element, end, duration = 1000) {
+    const start = 0;
+    const startTime = performance.now();
+    
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function (ease-out-quart)
+      const ease = 1 - Math.pow(1 - progress, 4);
+      const current = Math.floor(start + (end - start) * ease);
+      
+      element.textContent = current.toLocaleString('ru-RU');
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  },
+  
+  // Detect mobile device
+  isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  },
+  
+  // Detect iOS
+  isIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  },
+  
+  // Check online status
+  isOnline() {
+    return navigator.onLine;
+  },
+  
+  // Get browser language
+  getLanguage() {
+    return navigator.language || navigator.userLanguage || 'ru';
+  },
+  
+  // Hash string (simple)
+  hashCode(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash;
+    }
+    return hash.toString(36);
   }
 };
 
